@@ -1,0 +1,77 @@
+<!-- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flappy_ball</title>
+    <link rel="stylesheet" href="flappy.css">
+</head>
+<body>
+    <canvas id="2d" class="2d" width="800px" height="800px" ></canvas>
+    
+
+<script>
+    
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+
+/*ctx.fillStyle = "green";
+ctx.fillRect(0,0,200,200);
+
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+ctx.fill();
+
+ctx.clearRect(0, 0, canvas.width, canvas.height)
+ 
+ctx.font = '20px monospace'; 
+ctx.fillStyle = 'red';
+ctx.fillText('hello', 100, 100);
+
+
+ctx.textAlign = 'center';
+*/
+const bird = {
+    x: 50,
+    y: 200,
+    width: 30,
+    height: 30,
+    velocity: 0,
+    gravity: 0.15,
+    jumpForce: -4
+};
+
+let x = 0;
+
+function gameLoop(){
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    bird.velocity += bird.gravity;
+    bird.y += bird.velocity;
+    ctx.fillStyle = 'yellow';
+    ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
+
+    x += 2;
+
+    if (x > canvas.width) x = -50;
+
+    //ctx.fillStyle = "red";
+    //ctx.fillRect(x, 50, 50, 50);
+    
+
+    //updates
+    
+    
+
+
+
+    requestAnimationFrame(gameLoop)
+}
+gameLoop();
+
+</script>
+
+</body>
+</html>
