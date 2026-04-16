@@ -45,16 +45,22 @@
       y:         canvas.height / 2,
       radius:    12,
       velocity:  0,
-      gravity:   0.55,
-      jumpForce: -10,
+      gravity:   0.05,
+      jumpForce: -2.7,
+      //wingUp:    false,
+      //wingFrame: 0,
  
       update() {
         this.velocity += this.gravity;
         this.y        += this.velocity;
+        this.wingFrame++;
+        if (this.wingFrame > 12) this.wingUp = false;
       },
  
       flap() {
-        this.velocity = this.jumpForce; 
+        this.velocity = this.jumpForce;
+        //this.wingUp    = true;
+        //this.wingFrame = 0;
       },
  
       draw() {
@@ -63,6 +69,17 @@
         ctx.fillStyle = '#f5c518';
         ctx.fill();
         ctx.closePath();
+
+        /*const wingY = this.wingUp
+        ? this.y - 6
+        : this.y + 6;
+
+        ctx.beginPath();
+        ctx.ellipse(this.x - 8, wingY, 9, 5, 0, 0, Math.PI * 2);
+        ctx.fillStyle = '#e6a800';
+        ctx.fill();
+        ctx.closePath();
+        */
       },
  
       reset() {
@@ -76,7 +93,7 @@
  
     const PIPE_WIDTH = 42;
     const PIPE_GAP   = 140;
-    const PIPE_SPEED = 2.8;
+    const PIPE_SPEED = 0.5;
  
     let pipes = []; 
  
@@ -170,7 +187,7 @@
     // ─────────────────────────────────────────────
 
  
-    const SPAWN_INTERVAL = 80;
+    const SPAWN_INTERVAL = 300;
     let frameCount = SPAWN_INTERVAL;
  
     // ─────────────────────────────────────────────
