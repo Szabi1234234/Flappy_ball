@@ -45,8 +45,8 @@
       y:         canvas.height / 2,
       radius:    12,
       velocity:  0,
-      gravity:   0.05,
-      jumpForce: -2.7,
+      gravity:   0.55,
+      jumpForce: -10,
       //wingUp:    false,
       //wingFrame: 0,
  
@@ -93,7 +93,7 @@
  
     const PIPE_WIDTH = 42;
     const PIPE_GAP   = 140;
-    const PIPE_SPEED = 0.5;
+    const PIPE_SPEED = 2.5;
  
     let pipes = []; 
  
@@ -187,7 +187,7 @@
     // ─────────────────────────────────────────────
 
  
-    const SPAWN_INTERVAL = 300;
+    const SPAWN_INTERVAL = 60;
     let frameCount = SPAWN_INTERVAL;
  
     // ─────────────────────────────────────────────
